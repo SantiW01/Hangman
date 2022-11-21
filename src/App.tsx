@@ -6,11 +6,20 @@ function generateRandomInt(min: number, max: number): number {
 }
 
 function App() {
-  const wordList: string = require("./WordList.json");
+  const wordList = require("./WordList.json");
   const [word, setWord] = useState<String>("");
-  const wordChosen: number = generateRandomInt(0, 2886);
-
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  const wordChosen: number = generateRandomInt(1, 2855);
+  const componentArray: any = [];
+  for (let i = 0; i <= wordList.words[wordChosen].length; i++) {
+    componentArray.push(<p className="inline p-3">_</p>);
+  }
+  return (
+    <>
+      <div className="flex items-center justify-center h-screen">
+        {componentArray}
+      </div>
+    </>
+  );
 }
 
 export default App;
